@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://kaliuser3333.github.io/WebCraft/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://kaliuser3333.github.io/WebCraft/services.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kaliuser3333.github.io/WebCraft/portfolio.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kaliuser3333.github.io/WebCraft/about.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kaliuser3333.github.io/WebCraft/contacts.html</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
