@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио — WebCraft</title>
+<meta name="description" content="Портфолио работ: сайты, Telegram-боты, Mini Apps. Смотрите демо и заказывайте.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Стили для страницы портфолио */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 12px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.filter-btn.active {
+  background: var(--gradient);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.4);
+}
+.portfolio-item {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.portfolio-item.hidden {
+  display: none;
+}
+.portfolio-link-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 24px;
+  background: var(--gradient);
+  color: #fff;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.portfolio-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.5);
+  color: #fff;
+}
+</style>
+</head>
+<body data-title="Портфолио — WebCraft">
+
+<!-- НАВИГАЦИЯ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Web<span>Craft</span></a>
+    <div class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="about.html">Обо мне</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+    <a href="contacts.html" class="nav-btn">Заказать</a>
+    <button class="burger">☰</button>
+  </div>
+</nav>
+
+<!-- ГЕРОЙ -->
+<section class="hero" style="min-height: auto; padding: 180px 40px 80px;">
+  <div class="hero-inner" style="grid-template-columns: 1fr; text-align: center;">
+    <div class="hero-content" style="max-width: 800px; margin: 0 auto;">
+      <div class="hero-badge">Портфолио</div>
+      <h1 class="hero-title" style="font-size: 64px;">
+        Мои <span class="gradient">работы</span>
+      </h1>
+      <p class="hero-text" style="margin: 0 auto;">
+        Проекты, которые я реализовал. Каждый — с уникальным дизайном
+        и продуманной логикой. Кликайте на карточки, чтобы увидеть демо.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ФИЛЬТР + РАБОТЫ -->
+<section class="section" style="padding-top: 20px;">
+  <div class="container">
+
+    <!-- Фильтр -->
+    <div class="filters reveal">
+      <button class="filter-btn active" onclick="filterPortfolio('all', this)">Все работы</button>
+      <button class="filter-btn" onclick="filterPortfolio('sites', this)">Сайты</button>
+      <button class="filter-btn" onclick="filterPortfolio('bots', this)">Боты</button>
+      <button class="filter-btn" onclick="filterPortfolio('apps', this)">Mini Apps</button>
+    </div>
+
+    <!-- Сетка работ -->
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner reveal">
+    <h2 class="cta-title">Хочу <span class="gradient">такой же</span></h2>
+    <p class="cta-text">
+      Понравилась какая-то работа? Расскажите, что нужно —
+      сделаю похожий проект под ваш бизнес.
+    </p>
+    <a href="contacts.html" class="btn btn-primary">
+      Обсудить проект →
+    </a>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Web<span>Craft</span></div>
+      <p class="footer-desc">
+        Разрабатываю сайты, Telegram-ботов и Mini Apps под ключ.
+        Быстро, качественно, с душой.
+      </p>
+    </div>
+    <div>
+      <div class="footer-title">Разделы</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="portfolio.html">Портфолио</a></li>
+        <li><a href="about.html">Обо мне</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Связь</div>
+      <ul class="footer-links">
+        <li><a href="https://t.me/webcraft_dev" target="_blank">Telegram</a></li>
+        <li><a href="mailto:hello@webcraft.dev">hello@webcraft.dev</a></li>
+        <li><a href="tel:+79991234567">+7 (999) 123-45-67</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 WebCraft. Все права защищены.</div>
+    <div>Сделано с ❤️ и кодом</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ===== ДАННЫЕ ПОРТФОЛИО =====
+// ВАЖНО: замени demo-ссылки на свои GitHub Pages
+const works = [
+  {
+    id: 1,
+    category: 'sites',
+    tag: 'Сайт',
+    name: 'Свадебный сайт',
+    desc: 'Красивый одностраничник с обратным отсчётом, галереей, RSVP-формой и картой.',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
+    demo: 'https://kaliuser3333.github.io/wedding-site//'
+  },
+  {
+    id: 2,
+    category: 'sites',
+    tag: 'Сайт',
+    name: 'Beauty Studio',
+    desc: 'Сайт для мастера красоты с галереей работ, прайсом, отзывами и онлайн-записью.',
+    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80',
+    demo: 'https://kaliuser3333.github.io/Beauty-Studio/'
+  },
+  {
+    id: 3,
+    category: 'sites',
+    tag: 'Сайт',
+    name: 'La Cucina',
+    desc: 'Сайт итальянского ресторана с меню, галереей, картой и бронированием столиков.',
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80',
+    demo: 'https://kaliuser3333.github.io/restouran-pro/#about'
+  },
+  {
+    id: 4,
+    category: 'bots',
+    tag: 'Бот',
+    name: 'Бот-магазин',
+    desc: 'Telegram-бот с каталогом товаров, корзиной и приёмом оплаты через Stars.',
+    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&q=80',
+    demo: '#'
+  },
+  {
+    id: 5,
+    category: 'apps',
+    tag: 'Mini App',
+    name: 'Игровой раннер',
+    desc: '3D-раннер внутри Telegram. Управление свайпами, монеты, враги, рекорды.',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
+    demo: '#'
+  },
+  {
+    id: 6,
+    category: 'sites',
+    tag: 'Сайт',
+    name: 'Портфолио фотографа',
+    desc: 'Тёмный премиум-шаблон с галереей работ, категориями и формой брони даты.',
+    image: 'https://images.unsplash.com/photo-1552168324-d612d77725e3?w=800&q=80',
+    demo: '#'
+  }
+];
+
+// ===== РЕНДЕР =====
+function renderPortfolio(filter = 'all') {
+  const grid = document.getElementById('portfolioGrid');
+  const filtered = filter === 'all' ? works : works.filter(w => w.category === filter);
+
+  grid.innerHTML = filtered.map(w => `
+    <div class="portfolio-item reveal" data-category="${w.category}">
+      <div class="portfolio-card">
+        <div class="portfolio-image">
+          <img src="${w.image}" alt="${w.name}">
+        </div>
+        <div class="portfolio-info">
+          <span class="portfolio-tag">${w.tag}</span>
+          <h3 class="portfolio-name">${w.name}</h3>
+          <p class="portfolio-desc">${w.desc}</p>
+          ${w.demo && w.demo !== '#' 
+            ? `<a href="${w.demo}" target="_blank" class="portfolio-link-btn">Открыть демо →</a>`
+            : `<span class="portfolio-link" style="color:var(--text-m)">Демо по запросу</span>`
+          }
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Перезапускаем анимацию появления
+  document.querySelectorAll('.portfolio-item.reveal').forEach(el => {
+    el.classList.remove('visible');
+    setTimeout(() => el.classList.add('visible'), 50);
+  });
+}
+
+function filterPortfolio(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPortfolio(category);
+}
+
+// Инициализация
+renderPortfolio('all');
+</script>
+</body>
+</html>
