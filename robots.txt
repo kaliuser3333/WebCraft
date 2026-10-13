@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kaliuser3333.github.io/WebCraft/sitemap.xml
