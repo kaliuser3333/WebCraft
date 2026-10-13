@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты — WebCraft</title>
+<meta name="description" content="Свяжитесь со мной для заказа сайта, бота или Mini App. Telegram, email, телефон.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-info h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.contact-info p {
+  color: var(--text-m);
+  font-size: 16px;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: 0.3s;
+  text-decoration: none;
+  color: var(--text);
+}
+.contact-card:hover {
+  transform: translateX(8px);
+  border-color: var(--border-hover);
+  background: var(--card-hover);
+}
+.contact-card-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99,102,241,0.15);
+  border-radius: 12px;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.contact-card-info { flex: 1; }
+.contact-card-label {
+  font-size: 12px;
+  color: var(--text-m);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.contact-card-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.contact-form {
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 48px 40px;
+  box-shadow: 0 20px 60px rgba(99,102,241,0.15);
+}
+.form-group { margin-bottom: 22px; }
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-m);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  transition: 0.3s;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg);
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.1);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-select { cursor: pointer; }
+.form-submit {
+  width: 100%;
+  padding: 20px;
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.4);
+}
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(99,102,241,0.5);
+}
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: 0.3s;
+}
+.faq-item:hover { border-color: var(--border-hover); }
+.faq-q {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-bottom: 12px;
+}
+.faq-a {
+  font-size: 15px;
+  color: var(--text-m);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+  .contact-form { padding: 32px 24px; }
+}
+</style>
+</head>
+<body data-title="Контакты — WebCraft">
+
+<!-- НАВИГАЦИЯ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Web<span>Craft</span></a>
+    <div class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="about.html">Обо мне</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+    <a href="contacts.html" class="nav-btn">Заказать</a>
+    <button class="burger">☰</button>
+  </div>
+</nav>
+
+<!-- ГЕРОЙ -->
+<section class="section" style="padding-top: 180px; padding-bottom: 40px;">
+  <div class="container" style="text-align: center; max-width: 800px;">
+    <div class="hero-badge reveal" style="display: inline-block;">Контакты</div>
+    <h1 class="hero-title reveal" style="font-size: 64px; margin-top: 24px;">
+      Давайте <span class="gradient">обсудим</span>
+    </h1>
+    <p class="hero-text reveal" style="margin: 0 auto;">
+      Расскажите о своей задаче — отвечу в течение 1 часа,
+      подскажу как лучше решить, назову точную цену и сроки.
+    </p>
+  </div>
+</section>
+
+<!-- ФОРМА + КОНТАКТЫ -->
+<section class="section" style="padding-top: 40px;">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info reveal">
+        <h3>Прямые контакты</h3>
+        <p>
+          Пишите в удобное время — отвечаю быстро.
+          Можно связаться через Telegram, email или позвонить.
+        </p>
+        <div class="contact-list">
+
+          <a href="https://t.me/webcraft_dev" target="_blank" class="contact-card">
+            <div class="contact-card-icon">✈️</div>
+            <div class="contact-card-info">
+              <div class="contact-card-label">Telegram</div>
+              <div class="contact-card-value">@webcraft_dev</div>
+            </div>
+          </a>
+
+          <a href="mailto:hello@webcraft.dev" class="contact-card">
+            <div class="contact-card-icon">📧</div>
+            <div class="contact-card-info">
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-value">hello@webcraft.dev</div>
+            </div>
+          </a>
+
+          <a href="tel:+79991234567" class="contact-card">
+            <div class="contact-card-icon">📞</div>
+            <div class="contact-card-info">
+              <div class="contact-card-label">Телефон</div>
+              <div class="contact-card-value">+7 (999) 123-45-67</div>
+            </div>
+          </a>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">🕐</div>
+            <div class="contact-card-info">
+              <div class="contact-card-label">Режим работы</div>
+              <div class="contact-card-value">Пн-Вс, 10:00 – 22:00</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-group">
+          <label class="form-label">Ваше имя</label>
+          <input type="text" class="form-input" name="name" placeholder="Иван Иванов" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Контакт для связи</label>
+          <input type="text" class="form-input" name="contact" placeholder="Telegram, телефон или email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Что нужно сделать?</label>
+          <select class="form-select" name="service">
+            <option>Сайт-визитка</option>
+            <option>Лендинг</option>
+            <option>Интернет-магазин</option>
+            <option>Свадебный сайт</option>
+            <option>Сайт для мастера</option>
+            <option>Сайт для ресторана</option>
+            <option>Telegram-бот</option>
+            <option>Бот-магазин</option>
+            <option>Mini App</option>
+            <option>Продвижение</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Опишите задачу</label>
+          <textarea class="form-textarea" name="message" placeholder="Что нужно, какой бюджет, сроки..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Отправить заявку</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 class="section-title">Частые <span class="gradient">вопросы</span></h2>
+      <p class="section-desc">FAQ</p>
+    </div>
+    <div class="faq-grid">
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Сколько стоит сайт?</div>
+        <div class="faq-a">Зависит от задачи. Сайт-визитка — от 5 000 ₽, лендинг — от 10 000 ₽, магазин — от 25 000 ₽. Напишите — назову точную цену.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Как быстро сделаете?</div>
+        <div class="faq-a">Простой сайт — за 1 день. Лендинг — 2-3 дня. Бот — 2-3 дня. Магазин или Mini App — 5-10 дней.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Как происходит оплата?</div>
+        <div class="faq-a">Предоплата 50% — после согласования ТЗ. Остальные 50% — после сдачи проекта. Принимаю на карту, СБП или крипту.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Что после сдачи?</div>
+        <div class="faq-a">Месяц бесплатной поддержки — исправляю баги, помогаю с настройкой. Дальше — по договорённости.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Смогу ли я сам менять контент?</div>
+        <div class="faq-a">Да. Покажу как редактировать текст, менять фото, добавлять страницы. Оставлю инструкцию.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q">Делаете доработки?</div>
+        <div class="faq-a">Да, дорабатываю существующие сайты и боты. Напишите, что нужно изменить — скажу цену.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Web<span>Craft</span></div>
+      <p class="footer-desc">
+        Разрабатываю сайты, Telegram-ботов и Mini Apps под ключ.
+        Быстро, качественно, с душой.
+      </p>
+    </div>
+    <div>
+      <div class="footer-title">Разделы</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="portfolio.html">Портфолио</a></li>
+        <li><a href="about.html">Обо мне</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Связь</div>
+      <ul class="footer-links">
+        <li><a href="https://t.me/webcraft_dev" target="_blank">Telegram</a></li>
+        <li><a href="mailto:hello@webcraft.dev">hello@webcraft.dev</a></li>
+        <li><a href="tel:+79991234567">+7 (999) 123-45-67</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 WebCraft. Все права защищены.</div>
+    <div>Сделано с ❤️ и кодом</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
